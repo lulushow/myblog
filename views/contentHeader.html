@@ -1,0 +1,16 @@
+<div class="contentHeader">
+    <div class="linkLef">
+        <a href="/">首页</a>
+        <a href="/newArticle.html">新随笔</a>
+    </div>
+    <div class="linkRig">
+        {% if owner %}
+        <span>欢迎</span>{{owner}}
+        <a href="/logout.html">退出</a>
+        {% else %}
+        <a href="/login.html">登录</a>
+        <a href="/register.html">注册</a>
+        {% endif  %}
+    </div>
+    <!--<div></div>-->
+</div>

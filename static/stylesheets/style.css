@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+body{
+    background-color: #e2ddc7;
+    background-image: url("/static/images/banner.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+.content{
+    width: 1200px;
+    margin: 0 auto;
+}
+/*header*/
+header{
+    height: 300px;
+    position: relative;
+}
+.dog,.dog img, .dog span{
+    position: absolute;
+    bottom: 0;
+    vertical-align: baseline;
+}
+.dog,.dog img{
+    left: 0;
+}
+.dog span{
+    display: inline-block;
+    font-family: "Lucida Calligraphy";
+    font-size: 40px;
+    color: darkolivegreen;
+    left: 240px;
+    width: 400px;
+}
