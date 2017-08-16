@@ -1,13 +1,25 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei";
 }
 a {
     cursor: pointer;
     text-decoration: none;
+    color: #000000;
 }
 a:hover{
     text-decoration: none;
+    color: red;
+}
+.clearfix:after{
+    clear: both;
+    content: "";
+    display: block;
+}
+.clearfix{
+    zoom: 1;
 }
 body{
     background-color: #e2ddc7;
@@ -16,6 +28,7 @@ body{
     background-repeat: no-repeat;
 }
 .content{
+    position: relative;
     width: 1200px;
     margin: 0 auto;
 }
@@ -39,4 +52,67 @@ header{
     color: darkolivegreen;
     left: 240px;
     width: 400px;
+}
+
+.contentHeader{
+    display: block;
+    position: relative;
+    height: 40px;
+    background-color: burlywood;
+}
+.linkLef, .linkRig{
+    display: inline-block;
+    width: 50%;
+    float: left;
+    font-family: "Microsoft YaHei";
+}
+.linkRig{
+    text-align: right;
+}
+.linkRig span{
+    margin-right: 5px;
+    color: #ffffff;
+}
+.linkLef a, .linkRig a{
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+    color: #ffffff;
+}
+.linkLef a{
+    border-right: solid 1px papayawhip;
+}
+.linkRig a{
+    border-left: solid 1px papayawhip;
+}
+.linkLef a:hover, .linkRig a:hover{
+    background-color: papayawhip;
+    color: black;
+}
+.contentBody{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.leftBox, .rightBox{
+    display: block;
+    float: left;
+}
+.leftBox{
+    width: 65%;
+    margin-right: 2%;
+}
+.rightBox{
+    width: 33%;
+}
+/*footer*/
+footer{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: darkolivegreen;
 }

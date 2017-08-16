@@ -1,0 +1,10 @@
+<header>
+    <div class="dog">
+        <img src="/static/images/mydog.png" />
+        {% if user %}
+        <span>{{user}}的博客世界</span>
+        {% else %}
+        <span>欢迎来到博客世界</span>
+        {% endif %}
+    </div>
+</header>

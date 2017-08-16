@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/static/stylesheets/register.css" />
+{% endblock %}
+
+{% block main %}
+<div class="registerBody">
+    <h1>新用户注册</h1>
+    <div class="registerContent clearfix">
+        <form id="registerForm" class="registerForm">
+            <div class="registerRow clearfix">
+                <label class="leftTitle">用户名：</label>
+                <input type="text" name="username" class="rightAnswer" id="username" placeholder="即昵称，不少于两个字符" />
+                <div class="registerAlert"></div>
+            </div>
+            <div class="registerRow clearfix">
+                <label class="leftTitle">密码：</label>
+                <input type="password" name="password" class="rightAnswer" id="password" placeholder="请输入8-16位字母数字的组合" />
+                <div class="registerAlert"></div>
+            </div>
+            <div class="registerRow clearfix">
+                <label class="leftTitle">确认密码：</label>
+                <input type="password" name="repassword" class="rightAnswer" id="repassword" placeholder="请输入确认密码" />
+                <div class="registerAlert"></div>
+            </div>
+            <div class="registerRow clearfix">
+                <label class="leftTitle">手机：</label>
+                <input type="text" name="phone" class="rightAnswer" id="phone" placeholder="请输入正确手机号" />
+                <div class="registerAlert"></div>
+            </div>
+            <div class="registerRow clearfix">
+                <label class="leftTitle">邮箱：</label>
+                <input type="text" name="email" class="rightAnswer" id="email" placeholder="请输入邮箱" />
+                <div class="registerAlert"></div>
+            </div>
+            <div class="registerRow clearfix">
+                <label class="leftTitle"></label>
+                <div class="rightAnswer">
+                    <input class="registerButton" type="button" value="注册" node-type="register" />
+                </div>
+            </div>
+        </form>
+        <div class="registerImg">
+            <img src="/static/images/sunshine.jpg" width="400px" />
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="/static/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/static/javascripts/jquery.validate.js"></script>
+<script type="text/javascript" src="/static/javascripts/login.js"></script>
+{% endblock %}

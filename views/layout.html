@@ -14,7 +14,12 @@
 <body>
 <div class="content">
     {% include "./header.html" ignore missing %}
+    {% include "./contentHeader.html" ignore missing %}
     {% block main %}{% endblock %}
+    {% include "./footer.html" ignore missing %}
 </div>
+{% block javascripts %}
+<script type="text/javascript" src="/static/javascripts/jquery.min.js"></script>
+{% endblock %}
 </body>
 </html>

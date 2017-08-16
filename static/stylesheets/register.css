@@ -1,0 +1,48 @@
+.registerBody{
+    width: 900px;
+    margin: 40px auto 100px auto;
+}
+.registerBody h1{
+    color: darkolivegreen;
+    border-bottom: solid 1px silver;
+    margin: 40px 0;
+}
+.loginForm, .registerForm, .registerImg{
+    float: left;
+}
+.registerForm, .loginForm{
+    width: 450px;
+    margin-right: 50px;
+}
+.registerImg{
+    width: 400px;
+}
+.registerRow{
+    margin: 30px 0;
+}
+.leftTitle, .rightAnswer{
+    display: inline-block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+.leftTitle{
+    width: 140px;
+    text-align: right;
+    margin-right: 10px;
+}
+.rightAnswer{
+    width: 300px;
+}
+.rightAnswer input{
+    height: 30px;
+}
+.registerButton{
+    width: 100px;
+}
+.registerAlert{
+    margin-left: 150px;
+    color: red;
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+}
