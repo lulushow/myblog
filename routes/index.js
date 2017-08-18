@@ -5,11 +5,14 @@ var loginController = require("../controller/login");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index',{
-        title: '博客世界',
-        user: 'lulushow',
-        owner:''
-    });
+    if (req.session.username){
+        res.render('index',{
+            title: '博客世界',
+            username: req.session.username
+        });
+    } else {
+        res.redirect("login.html");
+    }
 });
 
 router.get('/register.html', function (req, res, next) {
@@ -25,8 +28,23 @@ router.get('/login.html', function (req, res, next) {
         user: ''
     })
 });
-router.get('/userData', loginController.login)
+router.post('/userData', loginController.login);
 
 router.post('/registerData', loginController.register);
+
+router.post('/logout', function (req, res, next) {
+    /*console.log(req.body.username);
+    console.log(req.session.id);*/
+    req.session.destroy();
+    res.send({
+        resultCode:0
+    });
+});
+
+router.get('/newArticle.html', function (req, res, next) {
+    res.render('newArticle', {
+        title: '新随笔'
+    });
+});
 
 module.exports = router;

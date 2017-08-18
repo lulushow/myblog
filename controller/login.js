@@ -65,20 +65,31 @@ exports.register = function (req, res) {
     });
 };
 
-exports.login = function (req, res) {
+exports.login = function (req, res, next) {
+
     userDAO.checkLogin(req.body.username, req.body.password, function (err, doc) {
         if (!err){
             if (doc){
+                //session存储
+                req.session.username = req.body.username;
+                req.session.password = req.body.password;
+                req.session.save();
+
                 res.send({
                     code: 200,
-                    msg: "登录成功"
-                })
+                    msg: "登录成功",
+                    username: req.body.username,
+                    password: req.body.password
+                });
             }else {
                 res.send({
                     code: 201,
-                    msg: "用户名或密码不正确"
-                })
+                    msg: "用户名或密码错误",
+                    username: "",
+                    password: ""
+                });
             }
         }
-    })
+    });
 };
+

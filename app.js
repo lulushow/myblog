@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
+var session = require('express-session');
+var connect = require('connect');
+var Mongostore = require('connect-mongo')(session);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -30,6 +33,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/static', express.static(path.join(__dirname, 'static')));//通过 express.static 访问的文件都存放在一个“虚拟（virtual）”目录
+
+app.use(session({
+    secret: 'hao',
+    resave: true, //每次请求都重置session cookies
+    store: new Mongostore({
+        url: 'mongodb://localhost:27017/blogdata',
+        ttl: 14*24*60*60
+    })
+}));
+
+app.use(require('./models/initSessionAndMongo'));
 
 app.use('/', index);
 app.use('/users', users);
