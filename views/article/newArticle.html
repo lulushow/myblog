@@ -35,28 +35,44 @@
 
 {% block javascripts %}
 <script type="text/javascript">
-    $('#elm1').xheditor({
+    var editor = $('#elm1').xheditor({
         tools:'full',
         skin:'default',
         showBlocktag:true,
-        internalScript:false,
-        internalStyle:false,
+        internalScript:true,
+        internalStyle:true,
         width:1000,
         height:400,
         fullscreen:false,
-        sourceMode:true,
+        sourceMode:false,
         forcePtag:true,
         upImgUrl:"upload.php",
         upImgExt:"jpg,jpeg,gif,png"
     });
+    editor.focus();
+    editor.setSource($("#elm1").val());
     $("#submit").click(function () {
         var titleStr = $("#articleTitle").val();
-        var contentStr = $("#elm1").val();
-        console.log(titleStr);
-        console.log(contentStr);
+        var contentStr = editor.getSource();
         var myDate = new Date();
-        var dateStr = myDate.toLocaleDateString();
-        console.log(dateStr);
+        var dateStr = myDate.toLocaleDateString()+" "+myDate.toLocaleTimeString();
+        var username = $("#userNAME").text();
+        $.ajax({
+            url: '/article/addArticle',
+            dataType: "json",
+            type: "post",
+            data: {
+                username: username,
+                articleTitle: titleStr,
+                articleContent: contentStr,
+                articleTime: dateStr
+            },
+            success: function (result) {
+                if (result.code === 200){
+                    location.href = '/';
+                }
+            }
+        })
     });
     $("#cancel").click(function () {
         alert("确认取消吗？");

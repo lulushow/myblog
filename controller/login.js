@@ -1,4 +1,5 @@
-var userModel = require("../models/login");
+var Models = require("../models/login");
+var userModel = Models.userModel;
 
 var userDAO = {
     save: function (json, callback) {
@@ -92,4 +93,3 @@ exports.login = function (req, res, next) {
         }
     });
 };
-

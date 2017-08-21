@@ -1,13 +1,14 @@
 <div class="contentHeader clearfix">
     <div class="linkLef">
-        <a href="/">首页</a>{% if username %}<a href="newArticle.html">新随笔</a><a href="management.html">管理</a>{% endif  %}
+        <a href="/">首页</a>{% if username %}<a href="/article/newArticle.html">新随笔</a><a href="/management.html">管理</a>{% endif  %}
     </div>
     <div class="linkRig">
         {% if username %}
         <span>欢迎{{username}}</span>
-        <a href="javascript:;" id="logout" data-username="{{username}}">退出</a>
+        <a href="javascript:;" id="logout">退出</a>
         {% else %}
-        <a href="login.html">登录</a><a href="register.html">注册</a>
+        <a href="/login.html">登录</a><a href="/register.html">注册</a>
         {% endif  %}
     </div>
+    <span id="userNAME" style="display: none">{{username}}</span>
 </div>

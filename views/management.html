@@ -1,11 +1,14 @@
 {% extends "layout.html" %}
 
 {% block title %}
-{{ title }}
+{{title}}
 {% endblock %}
 
 {% block javascript %}
 <script type="text/javascript" src="/static/javascripts/jquery.min.js"></script>
+<script type="text/javascript">
+
+</script>
 
 {% endblock %}
 
@@ -14,16 +17,13 @@
 
 {% block main %}
 <div class="contentBody clearfix">
-    <div class="leftBox">
-        <div id="articles"></div>
-    </div>
-    <div class="rightBox">
-        wejvcwdhcnsdgvwukgvjdshvvwen
+    <div id="table">
+
     </div>
 </div>
 {% endblock %}
 
 {% block javascripts %}
-<script type="text/javascript" src="/static/javascripts/index.js"></script>
 <script type="text/javascript" src="/static/javascripts/logout.js"></script>
+<script type="text/javascript" src="/static/javascripts/management.js"></script>
 {% endblock %}

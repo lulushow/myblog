@@ -11,6 +11,8 @@ var Mongostore = require('connect-mongo')(session);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var article = require('./routes/article');
+var manage = require('./routes/manage');
 
 var app = express();
 
@@ -37,9 +39,10 @@ app.use('/static', express.static(path.join(__dirname, 'static')));//通过 expr
 app.use(session({
     secret: 'hao',
     resave: true, //每次请求都重置session cookies
+    saveUninitialized: true,
     store: new Mongostore({
         url: 'mongodb://localhost:27017/blogdata',
-        ttl: 14*24*60*60
+        ttl: 5*60
     })
 }));
 
@@ -47,6 +50,8 @@ app.use(require('./models/initSessionAndMongo'));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/article',article);
+app.use('/manage', manage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

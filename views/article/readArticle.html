@@ -1,11 +1,19 @@
 {% extends "layout.html" %}
 
 {% block title %}
-{{ title }}
 {% endblock %}
 
 {% block javascript %}
 <script type="text/javascript" src="/static/javascripts/jquery.min.js"></script>
+<script type="text/javascript">
+    function getparm(){
+        var url=location.href;
+        var tmp1=url.split("?")[1];
+        var id=tmp1.split("=")[0];
+        var idValue=tmp1.split("=")[1];
+        return idValue;
+    }
+</script>
 
 {% endblock %}
 
@@ -15,7 +23,7 @@
 {% block main %}
 <div class="contentBody clearfix">
     <div class="leftBox">
-        <div id="articles"></div>
+        <div id="article"></div>
     </div>
     <div class="rightBox">
         wejvcwdhcnsdgvwukgvjdshvvwen
@@ -24,6 +32,6 @@
 {% endblock %}
 
 {% block javascripts %}
-<script type="text/javascript" src="/static/javascripts/index.js"></script>
+<script type="text/javascript" src="/static/javascripts/article.js"></script>
 <script type="text/javascript" src="/static/javascripts/logout.js"></script>
 {% endblock %}

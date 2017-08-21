@@ -2,19 +2,20 @@ var mongodb = require("./connectDB");
 
 var Schema = mongodb.mongoose.Schema;
 
-var registerSchema = new Schema({
+var userSchema = new Schema({
     username: {type: String},
     password: {type: String},
     phone: {type:String},
-    email: {type: String},
-    articleInfo: {
-        articleTime: {type: String},
-        articleTitle: {type: String},
-        articleContent: {type: String}
-    }
+    email: {type: String}
+});
+var articleSchema = new Schema({
+    username: {type: String},
+    articleTime: {type: String},
+    articleTitle: {type: String},
+    articleContent: {type: String}
 });
 
-var userModel =  mongodb.mongoose.model("userModel", registerSchema);
+exports.userModel = mongodb.mongoose.model("userModel", userSchema);
 
-console.log(userModel);
-module.exports = userModel;
+exports.articleModel = mongodb.mongoose.model("articleModel", articleSchema);
+console.log(mongodb.mongoose.model("articleModel", articleSchema));

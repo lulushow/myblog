@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>{% block title %}{% endblock %}</title>
+    <title id="AllTitle">{% block title %}{% endblock %}</title>
     <script type="text/javascript" src="/static/javascripts/jquery.min.js"></script>
     {% block javascript %}
     {% endblock %}
@@ -21,24 +21,9 @@
     {% block main %}{% endblock %}
     {% include "./footer.html" ignore missing %}
 </div>
+<script type="text/javascript" src="/static/javascripts/index.js"></script>
+<script type="text/javascript" src="/static/javascripts/logout.js"></script>
 {% block javascripts %}
-
-<script type="text/javascript">
-    $('#logout').click(function () {
-        var username = $(this).attr('data-username');
-        $.ajax({
-            url: '/logout',
-            dataType: "json",
-            type: "post",
-            data: {username: username},
-            success: function (result) {
-                if (result.resultCode === 0){
-                    location.href = 'login.html';
-                }
-            }
-        })
-    })
-</script>
 {% endblock %}
 </body>
 </html>
