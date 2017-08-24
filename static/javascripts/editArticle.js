@@ -18,12 +18,12 @@ $(document).ready(function () {
     });
 
     var editor = $('#editArticleContent').xheditor({
-        tools:'full',
+        tools:'simple',
         skin:'default',
         showBlocktag:true,
         internalScript:true,
         internalStyle:true,
-        width:1000,
+        width:690,
         height:400,
         fullscreen:false,
         sourceMode:false,
@@ -34,7 +34,7 @@ $(document).ready(function () {
     editor.focus();
     editor.setSource($("#editArticleContent").val());
     $("#saveModify").click(function () {
-        var id = id;
+        var _id = id;
         var titleStr = $("#editArticleTitle").val();
         var contentStr = editor.getSource();
         var myDate = new Date();
@@ -45,7 +45,7 @@ $(document).ready(function () {
             dataType: "json",
             type: "post",
             data: {
-                id: id,
+                id: _id,
                 username: username,
                 articleTitle: titleStr,
                 articleContent: contentStr,
@@ -58,8 +58,10 @@ $(document).ready(function () {
             }
         })
     });
-    $("#cancel").click(function () {
-        alert("确认取消吗？");
+    $("#cancelModify").click(function () {
+        if (confirm("确认取消吗？")){
+            location.href = '/management.html';
+        }
     });
 });
 

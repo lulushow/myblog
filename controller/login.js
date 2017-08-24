@@ -43,7 +43,8 @@ exports.register = function (req, res) {
                     username:req.body.username,
                     password: req.body.password,
                     phone: req.body.phone,
-                    email: req.body.email
+                    email: req.body.email,
+                    createDate: new Date()
                 };
                 userDAO.save(newUser, function (err) {
                     console.log(userModel);
@@ -67,13 +68,13 @@ exports.register = function (req, res) {
 };
 
 exports.login = function (req, res, next) {
-
     userDAO.checkLogin(req.body.username, req.body.password, function (err, doc) {
         if (!err){
             if (doc){
                 //session存储
                 req.session.username = req.body.username;
                 req.session.password = req.body.password;
+                req.session.createDate = doc.createDate;
                 req.session.save();
 
                 res.send({
@@ -93,3 +94,4 @@ exports.login = function (req, res, next) {
         }
     });
 };
+

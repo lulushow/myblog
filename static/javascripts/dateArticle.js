@@ -1,21 +1,22 @@
 $(document).ready(function () {
-
+    var queryDate = getparm();
     var username = $("#userNAME").text();
     $.ajax({
-        url: '/article/getArticle',
+        url: '/article/dateArticle',
         dataType: "json",
         type: "post",
         data: {
-            username: username
+            username: username,
+            date: queryDate
         },
         success: function (result) {
             var articleHtml = '';
             if (result.code === 200){
-                if (result.articles && result.articles.length){
-                    var articles = result.articles;
+                if (result.resultdata && result.resultdata.length){
+                    var articles = result.resultdata;
                     for (var i =0; i<articles.length; i++){
                         var abstract = removeHTMLTag(articles[i].articleContent).substr(0,300);
-                        abstract = abstract+ "...... ";
+                        abstract = abstract+ "......";
                         articleHtml += '<div class="articleDIV">'+
                             '<h2><a href="/article/readArticle.html?id='+articles[i]._id+'">'+articles[i].articleTitle+'</a></h2>'+
                             '<p><span>摘要：</span>'+abstract+'<a href="/article/readArticle.html?id='+articles[i]._id+'">阅读全文</a></p>'+
@@ -27,17 +28,15 @@ $(document).ready(function () {
                 articleHtml = '<div class="articleDIV">'+ result.articles +'</div>';
             }
 
-            $("#articles").html(articleHtml);
+            $("#dateArticles").html(articleHtml);
         }
-    });
+    })
 });
 
-
-function removeHTMLTag(str) {
-    str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
-    str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
-    //str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
-    str=str.replace(/&nbsp;/ig,'');//去掉&nbsp;
-    str=str.replace(/\s/g,''); //将空格去掉
-    return str;
+function getparm(){
+    var url=location.href;
+    var tmp1=url.split("?")[1];
+    var id=tmp1.split("=")[0];
+    var idValue=tmp1.split("=")[1];
+    return idValue;
 }

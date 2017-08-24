@@ -8,7 +8,7 @@ $("#logout").click(function () {
         data: {username: username},
         success: function (result) {
             if (result.resultCode === 0){
-                location.href = 'login.html';
+                location.href = '/login.html';
             }
         }
     })

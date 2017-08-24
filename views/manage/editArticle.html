@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block javascript %}
-
 <script type="text/javascript" src="/static/xheditor-1.2.2/xheditor-1.2.2.min.js"></script>
 <script type="text/javascript" src="/static/xheditor-1.2.2/xheditor_lang/zh-cn.js"></script>
 {% endblock %}
@@ -14,15 +13,15 @@
 {% endblock %}
 
 {% block main %}
-<div class="contentBody">
-    <h1>编辑随笔</h1>
-    <form>
-        <div>
-            <h2>随笔标题</h2>
+<div class="addArticleBody">
+    <h2 class="personTitle addh2">编辑随笔</h2>
+    <form class="editForm">
+        <div class="editRow">
+            <h3>随笔标题</h3>
             <input type="text" id="editArticleTitle">
         </div>
-        <div>
-            <h2>内容</h2>
+        <div class="editRow">
+            <h3>内容</h3>
             <textarea name="content" id="editArticleContent"></textarea>
         </div>
     </form>

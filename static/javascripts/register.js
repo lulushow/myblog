@@ -104,7 +104,7 @@
                     jqXML.done(function (json){
                         if(json.code === 200){
                             alert(json.msg);
-                            window.location.href='login.html'
+                            window.location.href='/login.html'
                         }else{
                             alert(json.msg);
                         }

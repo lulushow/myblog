@@ -39,10 +39,16 @@ router.post('/logout', function (req, res, next) {
 });
 
 router.get('/management.html', function (req, res, next) {
-    res.render('management', {
-        title: "博客管理",
-        username: req.session.username
-    })
+    if (req.session.username){
+        res.render('management',{
+            title: '博客管理',
+            username: req.session.username
+        });
+    } else {
+        res.redirect("login.html");
+    }
 });
+
+
 
 module.exports = router;

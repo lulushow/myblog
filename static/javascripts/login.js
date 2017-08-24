@@ -31,7 +31,6 @@
                 jqXML.done(function (data) {
                     console.log("AJAX success");
                     if (data.code === 200){
-                        alert(data.msg);
                         location.href = "/";
                     }else if (data.code === 201){
                         alert(data.msg);

@@ -13,6 +13,9 @@ a:hover{
     text-decoration: none;
     color: red;
 }
+input{
+    padding: 5px;
+}
 .clearfix:after{
     clear: both;
     content: "";
@@ -29,7 +32,7 @@ body{
 }
 .content{
     position: relative;
-    width: 1200px;
+    width: 950px;
     margin: 0 auto;
 }
 /*header*/
@@ -103,11 +106,140 @@ header{
     float: left;
 }
 .leftBox{
-    width: 65%;
-    margin-right: 2%;
+    width: 730px;
+    min-height: 400px;
+    margin-right: 20px;
+    border: solid 1px lightgrey;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+}
+#articles, #article, #dateArticles{
+    padding: 20px;
+    color: #494949;
+    font-family: "Microsoft YaHei";
+}
+.articleDIV{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: dashed 1px lightgrey;
+}
+.articleDIV h2{
+    margin-bottom: 10px;
+}
+.articleDIV h2 a{
+    color: #6a6352;
+    font-size: 18px;
+}
+.articleDIV h2 a:hover{
+    color: #666666;
+    text-decoration: underline;
+}
+.articleDIV p{
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+.postInfo, .postInfo a{
+    font-size: 14px;
+    line-height: 1.4;
+    color: #666666;
+}
+.postInfo a:hover{
+    text-decoration: underline;
 }
 .rightBox{
-    width: 33%;
+    width: 200px;
+}
+#personalInfo{
+    width: 200px;
+    height: 150px;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+}
+.personTitle{
+    height: 40px;
+    line-height: 40px;
+    background-color: #e2e7e6;
+    color: #55626e;
+    padding-left: 10px;
+}
+.personTitle h3{
+    font-size: 14px;
+}
+.personContent{
+    padding: 10px;
+    color: #6a6352;
+    font-size: 14px;
+}
+.row{
+    height: 25px;
+    line-height: 25px;
+}
+/*添加新随笔，编辑随笔*/
+.addArticleBody{
+    padding: 20px;
+}
+h2.addh2{
+    font-size: 16px;
+}
+.editForm{
+    background-color: #F5F5F5;
+}
+.Arow{
+    margin-top: 10px;
+}
+.editRow{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.editRow h3{
+    font-size: 14px;
+    color: #55626e;
+}
+#articleTitle, #editArticleTitle{
+    width: 688px;
+    height: 30px;
+    line-height: 30px;
+}
+/*管理页面，table*/
+#table{
+    padding: 20px;
+    position: relative;
+    margin-top: 20px;
+}
+.manageTable{
+    border-bottom: 3px solid #6b86b3;
+    margin-bottom: 8px;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.manageTable tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.manageTable tbody tr{
+    height: 30px;
+    line-height: 30px;
+}
+.manageTable tbody th{
+    font-weight: bold;
+    border-bottom: solid 1px #6b86b3;
+    text-align: center;
+}
+.manageTable tbody th.post-title{
+    text-align: left;
+}
+.manageTable tbody th.doSomething{
+    text-align: center;
+    width: 80px;
+}
+.manageTable tbody td{
+    text-align: center;
+}
+.manageTable tbody td.inTitle{
+    text-align: left;
 }
 /*footer*/
 footer{
@@ -116,3 +248,56 @@ footer{
     text-align: center;
     color: darkolivegreen;
 }
+
+/*日历样式*/
+
+.Calendar {
+    font-family:Verdana;
+    font-size:9pt;
+    background-color:#ffffff;
+    text-align:center;
+    width:198px;
+    height:180px;
+    padding:10px;
+    line-height:1.5em;
+}
+
+.Calendar a{
+    color:#0066CC;
+}
+.Calendar table{
+    width:100%;
+    border:0;
+}
+.Calendar table thead{color:#acacac;}
+.Calendar table td {
+    font-size: 11px;
+    padding:1px;
+}
+.haveData{
+    display: inline-block;
+    border: solid 1px red;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    color: blue;
+    text-decoration: none;
+}
+#idCalendarPre{
+    cursor:pointer;
+    float:left;
+    padding-right:5px;
+}
+#idCalendarNext{
+    cursor:pointer;
+    float:right;
+    padding-right:5px;
+}
+#idCalendar td.onToday {
+    font-weight:bold;
+    color:#C60;
+}
+#idCalendar td.onSelect {
+    font-weight:bold;
+}
+

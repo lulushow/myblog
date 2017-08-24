@@ -14,15 +14,15 @@
 {% endblock %}
 
 {% block main %}
-<div class="contentBody">
-    <h1>添加随笔</h1>
-    <form>
-        <div>
-            <h2>随笔标题</h2>
+<div class="addArticleBody">
+    <h2 class="personTitle addh2">添加随笔</h2>
+    <form class="editForm">
+        <div class="editRow">
+            <h3>随笔标题</h3>
             <input type="text" id="articleTitle">
         </div>
-        <div>
-            <h2>内容</h2>
+        <div class="editRow">
+            <h3>内容</h3>
             <textarea name="content" id="elm1"></textarea>
         </div>
     </form>
@@ -36,12 +36,12 @@
 {% block javascripts %}
 <script type="text/javascript">
     var editor = $('#elm1').xheditor({
-        tools:'full',
+        tools:'simple',
         skin:'default',
         showBlocktag:true,
         internalScript:true,
         internalStyle:true,
-        width:1000,
+        width:690,
         height:400,
         fullscreen:false,
         sourceMode:false,
@@ -75,7 +75,9 @@
         })
     });
     $("#cancel").click(function () {
-        alert("确认取消吗？");
+        if (confirm("确认取消吗？")){
+            location.href = '/management.html';
+        }
     });
 </script>
 {% endblock %}

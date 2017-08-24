@@ -35,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/static', express.static(path.join(__dirname, 'static')));//通过 express.static 访问的文件都存放在一个“虚拟（virtual）”目录
+app.use(favicon(path.join(__dirname, 'static', 'myIco.ico')));
 
 app.use(session({
     secret: 'hao',
@@ -42,7 +43,7 @@ app.use(session({
     saveUninitialized: true,
     store: new Mongostore({
         url: 'mongodb://localhost:27017/blogdata',
-        ttl: 5*60
+        ttl: 15*60
     })
 }));
 

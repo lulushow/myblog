@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title id="AllTitle">{% block title %}{% endblock %}</title>
     <script type="text/javascript" src="/static/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/javascripts/common.js"></script>
+    <script type="text/javascript" src="/static/javascripts/calendarFuntion.js"></script>
     {% block javascript %}
     {% endblock %}
-    <link rel="shortcut icon" href="/static/images/myIco.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/static/myIco.ico" type="image/x-icon"/>
     <link href="/static/stylesheets/style.css" rel="stylesheet"/>
     {% block stylesheets %}
     {% endblock %}
@@ -18,11 +20,17 @@
 <div class="content">
     {% include "./header.html" ignore missing %}
     {% include "./contentHeader.html" ignore missing %}
-    {% block main %}{% endblock %}
+    <div class="contentBody clearfix">
+        <div class="leftBox">
+            {% block main %}{% endblock %}
+        </div>
+        {% include "./rightBox.html" ignore missing %}
+    </div>
     {% include "./footer.html" ignore missing %}
 </div>
 <script type="text/javascript" src="/static/javascripts/index.js"></script>
 <script type="text/javascript" src="/static/javascripts/logout.js"></script>
+<script type="text/javascript" src="/static/javascripts/rightBox.js"></script>
 {% block javascripts %}
 {% endblock %}
 </body>

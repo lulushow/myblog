@@ -16,9 +16,9 @@ $(document).ready(function () {
                     console.log("article success3");
                     var article = result.article;
                     articleHtml += '<div class="articleDIV">'+
-                        '<h2 id="articleTitle">'+article.articleTitle+'</h2>'+
-                        '<div>posted @ <span id="articleTime">'+article.articleTime+ ' </span>by '+article.username+'</div>'+
-                        '<p id="articleContent">'+article.articleContent+'</p>'+
+                        '<h2>'+article.articleTitle+'</h2>'+
+                        '<div class="postInfo">posted @<span>'+article.articleTime+ ' </span>by '+username+"&nbsp;"+'<a href="/manage/editArticle.html?id=' + article._id + '">编辑</a></div>'+
+                        '<p>'+article.articleContent+'</p>'+
                         '</div>';
                 }
             } else if (result.code === 201){
